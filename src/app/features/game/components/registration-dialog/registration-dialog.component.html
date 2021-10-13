@@ -1,0 +1,28 @@
+<h1>Pick your username</h1>
+<form [formGroup]="registrationFormGroup">
+    <mat-form-field [formGroup]="registrationFormGroup">
+        <mat-label>Player name</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="name"
+        >
+        <mat-error *ngIf="registrationFormGroup.get('name')?.hasError('required')">
+          This field is required
+        </mat-error>
+    </mat-form-field>
+
+    <div class="row">
+        <div class="d-flex justify-content-between">
+          <button
+            mat-raised-button
+            [disabled]="!registrationFormGroup.valid"
+            (click)="register()"
+            type="submit"
+            >
+            Save
+          </button>
+        </div>
+      </div>
+</form>
